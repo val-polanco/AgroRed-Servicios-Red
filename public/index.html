@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AgroRed S.A.S.</title>
+
+    <style>
+        :root {
+            --purple: #6d28d9;
+            --purple-dark: #4c1d95;
+            --purple-deep: #2e1065;
+            --purple-light: #ede9fe;
+
+            --green: #22c55e;
+            --green-dark: #15803d;
+            --green-light: #dcfce7;
+
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --text: #1f2937;
+            --text-soft: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+        }
+
+        /* HEADER */
+
+        header {
+            min-height: 620px;
+            color: white;
+            background:
+                radial-gradient(
+                    circle at 85% 25%,
+                    rgba(34, 197, 94, 0.30),
+                    transparent 28%
+                ),
+                linear-gradient(
+                    135deg,
+                    var(--purple-deep),
+                    var(--purple-dark) 45%,
+                    #5b21b6 70%,
+                    var(--green-dark)
+                );
+        }
+
+        nav {
+            width: 88%;
+            max-width: 1180px;
+            margin: auto;
+            padding: 26px 0;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 27px;
+            font-weight: 800;
+        }
+
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+
+            background: var(--green);
+            border-radius: 12px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .logo span {
+            color: #86efac;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #f5f3ff;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: #86efac;
+        }
+
+
+        /* HERO */
+
+        .hero {
+            width: 88%;
+            max-width: 1180px;
+            margin: auto;
+
+            padding: 95px 0 120px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+
+            padding: 9px 15px;
+            border-radius: 30px;
+
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .hero-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--green);
+        }
+
+        .hero h1 {
+            max-width: 790px;
+
+            font-size: 60px;
+            line-height: 1.08;
+            letter-spacing: -2px;
+
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: #86efac;
+        }
+
+        .hero p {
+            max-width: 660px;
+
+            color: #ddd6fe;
+            font-size: 19px;
+            line-height: 1.7;
+        }
+
+        .hero-actions {
+            margin-top: 35px;
+            display: flex;
+            gap: 14px;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--purple-dark);
+
+            padding: 14px 23px;
+            border-radius: 11px;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: var(--green-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(255,255,255,0.30);
+            color: white;
+
+            padding: 14px 23px;
+            border-radius: 11px;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.10);
+        }
+
+
+        /* MAIN */
+
+        main {
+            width: 88%;
+            max-width: 1180px;
+            margin: auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-top: 85px;
+            margin-bottom: 45px;
+        }
+
+        .section-tag {
+            color: var(--green-dark);
+            font-weight: bold;
+            font-size: 14px;
+
+            text-transform: uppercase;
+            letter-spacing: 1.3px;
+        }
+
+        .section-heading h2 {
+            color: var(--purple-dark);
+            font-size: 37px;
+
+            margin: 10px 0;
+        }
+
+        .section-heading p {
+            color: var(--text-soft);
+
+            max-width: 650px;
+            margin: auto;
+
+            line-height: 1.7;
+        }
+
+
+        /* CARDS */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+            border-radius: 18px;
+
+            padding: 31px;
+
+            box-shadow:
+                0 8px 25px rgba(76, 29, 149, 0.06);
+
+            transition: 0.25s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 15px 35px rgba(76, 29, 149, 0.13);
+        }
+
+        .card-icon {
+            width: 55px;
+            height: 55px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 15px;
+
+            background: var(--purple-light);
+
+            font-size: 25px;
+
+            margin-bottom: 22px;
+        }
+
+        .card:nth-child(2) .card-icon {
+            background: var(--green-light);
+        }
+
+        .card h3 {
+            color: var(--purple-dark);
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--text-soft);
+            line-height: 1.65;
+            font-size: 15px;
+        }
+
+
+        /* INFRASTRUCTURE */
+
+        .infrastructure {
+            margin: 85px 0;
+
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+
+            overflow: hidden;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--purple-deep),
+                    var(--purple-dark)
+                );
+
+            color: white;
+        }
+
+        .infra-content {
+            padding: 50px;
+        }
+
+        .infra-content span {
+            color: #86efac;
+            font-weight: bold;
+        }
+
+        .infra-content h2 {
+            font-size: 36px;
+            margin: 12px 0 18px;
+        }
+
+        .infra-content p {
+            color: #ddd6fe;
+            line-height: 1.7;
+        }
+
+        .infra-data {
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(34,197,94,0.95),
+                    rgba(21,128,61,0.95)
+                );
+
+            padding: 45px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            gap: 18px;
+        }
+
+        .data-item {
+            background: rgba(255,255,255,0.13);
+
+            padding: 16px 18px;
+            border-radius: 13px;
+        }
+
+        .data-item small {
+            display: block;
+
+            color: #dcfce7;
+            margin-bottom: 5px;
+        }
+
+        .data-item strong {
+            font-size: 17px;
+        }
+
+
+        /* STATUS */
+
+        .status-section {
+            margin-bottom: 80px;
+
+            background: white;
+
+            border: 1px solid var(--border);
+            border-radius: 18px;
+
+            padding: 30px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+        }
+
+        .status-section h3 {
+            color: var(--purple-dark);
+            margin-bottom: 7px;
+        }
+
+        .status-section p {
+            color: var(--text-soft);
+        }
+
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+
+            color: var(--green-dark);
+            background: var(--green-light);
+
+            padding: 11px 17px;
+            border-radius: 30px;
+
+            font-weight: bold;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+
+            background: var(--green);
+            border-radius: 50%;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            background: #111827;
+            color: #94a3b8;
+
+            padding: 40px 20px;
+        }
+
+        .footer-content {
+            width: 88%;
+            max-width: 1180px;
+
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        .footer-brand span {
+            color: var(--green);
+        }
+
+
+        /* RESPONSIVE */
+
+        @media (max-width: 850px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 65px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .infrastructure {
+                grid-template-columns: 1fr;
+            }
+
+            .status-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+<header id="inicio">
+
+    <nav>
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🌱
+            </div>
+
+            Agro<span>Red</span>
+
+        </div>
+
+
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#infraestructura">Infraestructura</a></li>
+            <li><a href="#estado">Estado</a></li>
+        </ul>
+
+    </nav>
+
+
+    <section class="hero">
+
+        <div class="hero-badge">
+
+            <span class="hero-dot"></span>
+
+            Plataforma digital AgroRed
+
+        </div>
+
+
+        <h1>
+            Tecnología que conecta
+            <span>nuestra operación.</span>
+        </h1>
+
+
+        <p>
+            Bienvenido al portal público de AgroRed S.A.S.
+            Nuestra infraestructura digital integra servicios,
+            comunicaciones y recursos tecnológicos para apoyar
+            una operación conectada, eficiente y segura.
+        </p>
+
+
+        <div class="hero-actions">
+
+            <a href="#servicios" class="btn-primary">
+                Explorar servicios
+            </a>
+
+            <a href="#infraestructura" class="btn-secondary">
+                Nuestra infraestructura
+            </a>
+
+        </div>
+
+    </section>
+
+</header>
+
+
+
+<main>
+
+
+    <section id="servicios">
+
+        <div class="section-heading">
+
+            <div class="section-tag">
+                Servicios
+            </div>
+
+            <h2>
+                Infraestructura digital para AgroRed
+            </h2>
+
+            <p>
+                Un entorno tecnológico diseñado para conectar
+                servicios internos y públicos dentro de una
+                infraestructura organizada y segura.
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+            <article class="card">
+
+                <div class="card-icon">
+                    🌐
+                </div>
+
+                <h3>
+                    Resolución DNS
+                </h3>
+
+                <p>
+                    Servicio de resolución de nombres que permite
+                    acceder a los recursos de AgroRed mediante
+                    dominios fáciles de identificar.
+                </p>
+
+            </article>
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    🖥️
+                </div>
+
+                <h3>
+                    Servicios Web
+                </h3>
+
+                <p>
+                    Infraestructura HTTP basada en Apache2
+                    para alojar el portal público y los recursos
+                    internos de la organización.
+                </p>
+
+            </article>
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    🔐
+                </div>
+
+                <h3>
+                    Acceso controlado
+                </h3>
+
+                <p>
+                    Separación entre servicios públicos y recursos
+                    internos mediante controles de acceso definidos
+                    sobre la infraestructura de red.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="infrastructure" id="infraestructura">
+
+        <div class="infra-content">
+
+            <span>
+                Data Center AgroRed
+            </span>
+
+            <h2>
+                Una infraestructura conectada
+            </h2>
+
+            <p>
+                Los servicios web y DNS forman parte de la
+                infraestructura tecnológica definida para AgroRed
+                S.A.S., permitiendo integrar resolución de nombres,
+                aplicaciones web y recursos internos.
+            </p>
+
+        </div>
+
+
+        <div class="infra-data">
+
+            <div class="data-item">
+
+                <small>
+                    Servidor DNS
+                </small>
+
+                <strong>
+                    ns1.agrored.com
+                </strong>
+
+            </div>
+
+
+            <div class="data-item">
+
+                <small>
+                    Sitio público
+                </small>
+
+                <strong>
+                    www.agrored.com
+                </strong>
+
+            </div>
+
+
+            <div class="data-item">
+
+                <small>
+                    Red del Data Center
+                </small>
+
+                <strong>
+                    172.16.1.192/26
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="status-section" id="estado">
+
+        <div>
+
+            <h3>
+                Estado de la plataforma
+            </h3>
+
+            <p>
+                Los servicios del portal público están disponibles.
+            </p>
+
+        </div>
+
+
+        <div class="status-badge">
+
+            <span class="status-dot"></span>
+
+            Servicio activo
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<footer>
+
+    <div class="footer-content">
+
+        <div class="footer-brand">
+
+            <strong>
+                Agro<span>Red</span> S.A.S.
+            </strong>
+
+        </div>
+
+
+        <div>
+            Infraestructura de Servicios de Red
+        </div>
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>

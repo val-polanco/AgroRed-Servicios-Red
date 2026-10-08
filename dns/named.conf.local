@@ -1,0 +1,10 @@
+zone "agrored.com" {
+    type master;
+    file "/etc/bind/db.agrored.com";
+};
+
+zone "1.16.172.in-addr.arpa" {
+    type master;
+    file "/etc/bind/db.1.16.172";
+};
+

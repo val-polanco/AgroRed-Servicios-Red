@@ -1,0 +1,23 @@
+# Máquinas virtuales
+*.box
+*.vdi
+*.vmdk
+.vagrant/
+
+# Llaves y credenciales
+*.pem
+*.key
+id_rsa
+id_ed25519
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Temporales
+*.log
+*.tmp
+*~

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intranet | AgroRed S.A.S.</title>
+
+    <style>
+        :root {
+            --purple: #6d28d9;
+            --purple-dark: #4c1d95;
+            --purple-soft: #ede9fe;
+
+            --green: #22c55e;
+            --green-dark: #15803d;
+            --green-soft: #dcfce7;
+
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --text: #1f2937;
+            --text-soft: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+        }
+
+        .topbar {
+            background: linear-gradient(
+                135deg,
+                var(--purple-dark),
+                var(--purple)
+            );
+
+            color: white;
+            padding: 22px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #86efac;
+        }
+
+        .internal-badge {
+            background: rgba(255,255,255,0.15);
+            padding: 9px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .welcome {
+            padding: 55px 7% 30px;
+        }
+
+        .welcome h1 {
+            color: var(--purple-dark);
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .welcome p {
+            color: var(--text-soft);
+            max-width: 760px;
+            line-height: 1.7;
+        }
+
+        .dashboard {
+            padding: 20px 7% 50px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 26px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            transition: 0.25s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(76,29,149,0.10);
+        }
+
+        .icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 13px;
+            background: var(--purple-soft);
+            color: var(--purple-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            color: var(--purple-dark);
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: var(--text-soft);
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .status {
+            display: inline-block;
+            margin-top: 15px;
+            background: var(--green-soft);
+            color: var(--green-dark);
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .network-box {
+            margin: 5px 7% 55px;
+            background: linear-gradient(
+                135deg,
+                var(--purple-dark),
+                #5b21b6
+            );
+            border-radius: 18px;
+            color: white;
+            padding: 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .network-box h2 {
+            margin-bottom: 10px;
+        }
+
+        .network-box p {
+            color: #ede9fe;
+            line-height: 1.6;
+        }
+
+        .network-data {
+            background: rgba(255,255,255,0.12);
+            padding: 18px 22px;
+            border-radius: 13px;
+            min-width: 250px;
+        }
+
+        .network-data div {
+            margin: 8px 0;
+        }
+
+        .access-message {
+            margin: 0 7% 60px;
+            border-left: 5px solid var(--green);
+            background: var(--green-soft);
+            padding: 22px 25px;
+            border-radius: 12px;
+        }
+
+        .access-message h3 {
+            color: var(--green-dark);
+            margin-bottom: 7px;
+        }
+
+        .access-message p {
+            color: #166534;
+        }
+
+        footer {
+            text-align: center;
+            padding: 28px;
+            background: #111827;
+            color: #cbd5e1;
+        }
+
+        @media (max-width: 850px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .network-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .welcome h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div class="logo">
+            Agro<span>Red</span>
+        </div>
+
+        <div class="internal-badge">
+            Intranet corporativa
+        </div>
+    </header>
+
+
+    <section class="welcome">
+        <h1>Portal Intranet AgroRed S.A.S.</h1>
+
+        <p>
+            Acceso restringido al Data Center.
+            Este espacio reúne información y servicios internos
+            disponibles únicamente para usuarios autorizados
+            dentro de la red corporativa.
+        </p>
+    </section>
+
+
+    <main class="dashboard">
+
+        <div class="card">
+            <div class="icon">🌐</div>
+
+            <h3>Servidor DNS</h3>
+
+            <p>
+                Servicio de resolución de nombres administrado
+                mediante BIND9.
+            </p>
+
+            <span class="status">
+                ● Activo
+            </span>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">🖥️</div>
+
+            <h3>Servidor Web</h3>
+
+            <p>
+                Servicio HTTP administrado mediante Apache2
+                para los portales de AgroRed.
+            </p>
+
+            <span class="status">
+                ● Activo
+            </span>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">🔐</div>
+
+            <h3>Acceso restringido</h3>
+
+            <p>
+                El acceso a esta intranet se encuentra limitado
+                a clientes pertenecientes a la red del Data Center.
+            </p>
+
+            <span class="status">
+                ● Protegido
+            </span>
+        </div>
+
+    </main>
+
+
+    <section class="network-box">
+
+        <div>
+            <h2>Infraestructura del Data Center</h2>
+
+            <p>
+                La intranet funciona sobre la red privada definida
+                para el Data Center de AgroRed S.A.S.
+            </p>
+        </div>
+
+        <div class="network-data">
+            <div>
+                <strong>Red:</strong>
+                172.16.1.192/26
+            </div>
+
+            <div>
+                <strong>DNS:</strong>
+                172.16.1.198
+            </div>
+
+            <div>
+                <strong>Web:</strong>
+                172.16.1.199
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="access-message">
+
+        <h3>Acceso autorizado</h3>
+
+        <p>
+            Tu dispositivo pertenece a la red permitida
+            para acceder a los recursos internos de AgroRed.
+        </p>
+
+    </section>
+
+
+    <footer>
+        AgroRed S.A.S. · Infraestructura de Servicios de Red
+    </footer>
+
+</body>
+</html>
